@@ -1,7 +1,7 @@
 # taxi2022
 
-## To install project run
-### npm install
+## To install project, you can run
+### > npm install
 
-## To run project
-### npm start
+## To run project, you can run
+### > gulp
