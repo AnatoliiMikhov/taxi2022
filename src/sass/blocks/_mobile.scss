@@ -1,0 +1,104 @@
+.mobile {
+    min-height: 864px;
+    padding: 48px 0 80px;
+    background: url('../images/bg/mobile_bg.jpeg') center (center/cover) no-repeat;
+
+    @media(max-width: 1199.98px) {
+        padding: 38px 0 60px;
+    }
+
+    &__cards {
+        margin-top: 30px;
+    }
+}
+
+.mobile-card {
+    position: relative;
+
+    height: 280px;
+    width: 320px;
+    margin: 0 auto 20px;
+    padding: 80px 16px 0;
+    border-radius: 6px;
+
+    @media(max-width: 1199.98px) {
+        width: 300px;
+        height: 260px;
+    }
+
+    @media(max-width: 991.98px) {
+        width: 100%;
+    }
+
+    &_1 {
+        background: url('../images/cards/card_1.jpeg') center (center/cover) no-repeat;
+    }
+
+    &_2 {
+        background: url('../images/cards/card_2.jpeg') center (center/cover) no-repeat;
+    }
+
+    &_3 {
+        background: url('../images/cards/card_3.jpeg') center (center/cover) no-repeat;
+    }
+
+    &_4 {
+        background: url('../images/cards/card_4.jpeg') center (center/cover) no-repeat;
+    }
+
+    &_5 {
+        background: url('../images/cards/card_5.jpeg') center (center/cover) no-repeat;
+    }
+
+    &_6 {
+        background: url('../images/cards/card_6.jpeg') center (center/cover) no-repeat;
+    }
+
+    &__head {
+        line-height: 36px;
+        color: $white;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    &__link {
+        position: absolute;
+        bottom: 34px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 29px;
+        height: 29px;
+
+        background-color: $black;
+
+        border-radius: 50%;
+
+        @media(min-width: 992px) {
+            &:hover {
+                border: 1px solid $main-color;
+            }
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            width: 17px;
+            height: 2px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            background-color: $main-color;
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+    }
+}

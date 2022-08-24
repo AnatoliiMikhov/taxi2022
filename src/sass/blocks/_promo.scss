@@ -1,0 +1,59 @@
+.promo {
+    min-height: 100vh;
+    background: url('../images/bg/promo_bg.jpeg') center (center/cover) no-repeat fixed;
+    color: $white;
+    text-align: center;
+    padding: 202px 0 135px;
+
+    @media(max-width: 1199.98px) {
+        padding: 188px 0 100px;
+    }
+
+    @media(max-width: 991.98px) {
+        min-height: 0;
+    }
+
+    @media(max-width: 575.98px) {
+        padding: 182px 0 64px;
+    }
+
+    &__header {
+        font-weight: 900;
+        margin: 0 0 16px;
+        text-transform: uppercase;
+    }
+
+    &__subheader {
+        font-weight: 700;
+        margin: 0 0 24px;
+        text-transform: uppercase;
+
+        @media(max-width: 374.98px) {
+            font-weight: 400;
+        }
+    }
+
+    &__desc {
+        @media(max-width: 575.98px) {
+            display: none;
+        }
+    }
+
+    &__btn {
+        margin: 120px auto 0;
+        width: 260px;
+        height: 62px;
+
+        @media(max-width: 991.98px) {
+            margin-top: 92px;
+        }
+    }
+}
+
+.promo-desc {
+    &__paragraph {
+        font-size: 18px;
+
+
+    }
+}

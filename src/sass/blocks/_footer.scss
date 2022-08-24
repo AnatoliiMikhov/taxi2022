@@ -1,0 +1,152 @@
+.footer {
+    padding: 8px 24px;
+    position: relative;
+
+    @media(max-width: 1319.98px) {
+        padding: 32px 0;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        width: 300px;
+        height: 4px;
+
+        position: absolute;
+        top: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        background-color: $main-color;
+    }
+
+    &__wrapper {
+        display: flex;
+        min-height: 142px;
+        justify-content: space-between;
+        align-items: center;
+
+        @media(max-width: 1319.98px) {
+            flex-direction: column;
+        }
+    }
+
+    &__social {
+        display: flex;
+
+        flex: 0 0 25%;
+
+        @media(max-width: 1319.98px) {
+            margin-bottom: 16px;
+        }
+    }
+
+    &__links {
+        flex: 1 1 50%;
+
+        @media(max-width: 1319.98px) {
+            margin-bottom: 16px;
+        }
+
+        @media(max-width: 991.98px) {
+            order: -1;
+        }
+    }
+
+    &__store-imgs {
+        flex: 0 0 25%;
+        text-align: right;
+
+        a {
+            display: inline-flex;
+            cursor: pointer;
+
+            &:not(:last-child) {
+                margin-right: 10px;
+
+                @media(max-width: 374.98px) {
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+}
+
+.footer-social {
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: $white;
+        font-size: 18px;
+
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: $social-icon-bg-color;
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        &:hover {
+            color: $white;
+        }
+    }
+}
+
+.footer-links {
+    text-align: center;
+    text-transform: uppercase;
+
+    &__main {
+        margin-bottom: 8px;
+    }
+
+    &__sublinks {
+        margin-bottom: 8px;
+    }
+
+    &__link {
+        font-weight: 300;
+        font-size: 15px;
+        color: $footer-link-color;
+
+        &:not(:first-child) {
+            margin-left: 6px;
+        }
+
+        &:not(:last-child) {
+            margin-right: 6px;
+        }
+    }
+
+    &__sublink {
+        font-weight: 300;
+        font-size: 11px;
+        color: $footer-sublink-color;
+
+        &:not(:first-child),
+        &:not(:last-child) {
+            margin-left: 6px;
+
+            @media(max-width: 575.98px) {
+                margin-left: 4px;
+            }
+        }
+
+        @media(max-width: 374.98px) {
+            font-size: 10px;
+        }
+    }
+
+    &__lang {
+        display: block;
+        font-weight: 400;
+        font-size: 11px;
+        color: $main-color;
+        cursor: pointer;
+    }
+}

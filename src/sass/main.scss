@@ -1,0 +1,31 @@
+// @import './libs/bootstrap-reboot.min';
+// @import './libs/bootstrap-grid.min';
+// @import './libs/bootstrap.min';
+
+/* -------------------------------- Variables ------------------------------- */
+@import './base/_variables.scss';
+
+/* --------------------------------- Mixins --------------------------------- */
+@import './base/_mixins.scss';
+
+/* ------------------------------- icon fonts ------------------------------- */
+@import './fonts/_icons-fonts.scss';
+
+
+/* --------------------------------- Common --------------------------------- */
+@import './base/_common.scss';
+
+/* --------------------------------- Blocks --------------------------------- */
+@import './blocks/_header.scss';
+@import './blocks/_subheader.scss';
+@import './blocks/_hamburger.scss';
+
+@import './blocks/_promo.scss';
+@import './blocks/_reasons.scss';
+@import './blocks/_mobile.scss';
+@import './blocks/_choice.scss';
+@import './blocks/_require.scss';
+@import './blocks/_cities.scss';
+@import './blocks/_footer.scss';
+
+/* ---------------------------------- Media --------------------------------- */

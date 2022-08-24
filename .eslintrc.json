@@ -1,0 +1,47 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "standard"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "rules": {
+        "space-in-parens": [
+            "error",
+            "always"
+        ],
+        "indent": [
+            "warn",
+            4
+        ],
+        "array-bracket-spacing": "off",
+        "no-unused-vars": "warn",
+        "computed-property-spacing": "off",
+        "comma-dangle": [
+            "error",
+            {
+                "arrays": "always-multiline",
+                "objects": "always-multiline",
+                "imports": "always-multiline",
+                "exports": "always-multiline",
+                "functions": "never"
+            }
+        ],
+        "padded-blocks": "off",
+        "quotes": [
+            "error",
+            "single",
+            {
+                "allowTemplateLiterals": true
+            }
+        ],
+        "no-empty": "off",
+        "no-trailing-spaces": "warn"
+    }
+}

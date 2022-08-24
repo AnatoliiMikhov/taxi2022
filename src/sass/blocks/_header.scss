@@ -1,0 +1,120 @@
+.header {
+    position: relative;
+
+    .nav {
+        position: fixed;
+        width: 100%;
+        z-index: 5000;
+
+        color: $white;
+        height: 52px;
+        background-color: $bg-nav-color;
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 70px;
+            margin: 0;
+
+            @media (max-width: 1199.98px) {
+                padding: 12px 60px;
+            }
+
+            @media(max-width: 767.98px) {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 60%;
+                height: 100vh;
+                padding: 20px 15px;
+
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                background-color: rgba(0, 0, 0, .8);
+
+                transition: .6s all;
+
+                &_active {
+                    left: 0;
+                    overflow: auto;
+                }
+            }
+
+            @media(max-width: 575.98px) {
+                width: 75%;
+            }
+
+            @media(max-width: 374.98px) {
+                width: 80%;
+            }
+
+            &__item {
+                &:not(:last-child) {
+                    border-right: 2px dotted black;
+                    padding-right: 46px;
+
+                    @media (max-width: 1199.98px) {
+                        padding-right: 20px;
+                    }
+
+                    @media (max-width: 991.98px) {
+                        padding-right: 10px;
+                    }
+
+                    @media(max-width: 767.98px) {
+                        border: none;
+                        padding: 0;
+                        margin-bottom: 10px;
+                    }
+                }
+
+                @media(max-width: 767.98px) {
+                    width: 100%;
+                }
+            }
+
+            &__link {
+                font-weight: 300;
+                font-size: 15px;
+                color: $white;
+                border-bottom-width: 0;
+
+                @media(max-width: 991.98px) {
+                    font-size: 12px;
+                }
+
+                @media(max-width: 767.98px) {
+                    display: block;
+                    padding: 10px 10px;
+                    text-align: center;
+                    font-weight: 700;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    height: 1px;
+                    width: 0;
+                    background-color: $white;
+
+                    transition: 0.3s width;
+                }
+
+                @media screen and (min-width: 1200px) {
+                    &:hover {
+                        color: $link-hover-color;
+                        padding-bottom: 2px;
+
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
