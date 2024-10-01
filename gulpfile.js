@@ -1,42 +1,55 @@
 'use strict'
 
-const gulp = require( 'gulp' )
-const browserSync = require( 'browser-sync' )
-const sass = require( 'gulp-sass' )( require( 'sass' ) )
-const rename = require( 'gulp-rename' )
-const autoprefixer = require( 'gulp-autoprefixer' )
-const groupMedia = require( 'gulp-group-css-media-queries' )
-const cleanCSS = require( 'gulp-clean-css' )
+const gulp = require('gulp')
+const browserSync = require('browser-sync').create()
+const sass = require('gulp-sass')(require('sass'))
+const rename = require('gulp-rename')
+const autoprefixer = require('gulp-autoprefixer')
+const groupMedia = require('gulp-group-css-media-queries')
+const cleanCSS = require('gulp-clean-css')
+const sourcemaps = require('gulp-sourcemaps')
 
 // Static server
-gulp.task( 'server', () => {
-    browserSync.init( {
+function server() {
+    browserSync.init({
         server: {
             baseDir: 'src',
         },
-    } )
-} )
+        notify: false, // Вимикає повідомлення в браузері
+        open: false, // Вимикає автоматичне відкриття браузера
+    })
+}
 
-gulp.task( 'styles', () => {
+// Styles task
+function styles() {
     return gulp
-        .src( 'src/sass/**/*.+(scss|sass)' )
-        .pipe( sass( { outputStyle: 'compressed' } ).on( 'error', sass.logError ) )
-        .pipe( groupMedia() )
-        .pipe( rename( {
-            prefix: '',
-            suffix: '.min',
-        } ) )
-        .pipe( autoprefixer( {
-            cascade: false,
-        } ) )
-        .pipe( cleanCSS() )
-        .pipe( gulp.dest( 'src/css' ) )
-        .pipe( browserSync.stream() )
-} )
+        .src('src/sass/**/*.+(scss|sass)')
+        .pipe(sourcemaps.init()) // Ініціалізація sourcemaps для кращої розробки
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(groupMedia())
+        .pipe(
+            autoprefixer({
+                cascade: false,
+                overrideBrowserslist: ['last 2 versions'], // Оновлений синтаксис
+            })
+        )
+        .pipe(cleanCSS({ compatibility: 'ie8' })) // Підтримка IE8
+        .pipe(
+            rename({
+                prefix: '',
+                suffix: '.min',
+            })
+        )
+        .pipe(sourcemaps.write('.')) // Запис sourcemaps
+        .pipe(gulp.dest('src/css'))
+        .pipe(browserSync.stream())
+}
 
-gulp.task( 'watch', () => {
-    gulp.watch( 'src/sass/**/*.+(scss|sass)', gulp.parallel( 'styles' ) )
-    gulp.watch( 'src/*.html' ).on( 'change', browserSync.reload )
-} )
+// Watch task
+function watchFiles() {
+    gulp.watch('src/sass/**/*.+(scss|sass)', styles)
+    gulp.watch('src/*.html').on('change', browserSync.reload)
+}
 
-gulp.task( 'default', gulp.parallel( 'styles', 'server', 'watch' ) )
+// Default task
+exports.default = gulp.parallel(styles, server, watchFiles)
